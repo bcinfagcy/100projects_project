@@ -1,15 +1,69 @@
 <%- include('partials/header') -%>
   <div class="container">
-    <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-    </div>
-  </div>  
+    <div class="justify-content-center mt-5">
+        <ul class="list-unstyled">
+          <% for(var i=0; i<posts.length; i++) {%>
+              <div class="jusify-content-center">
+                      <li class="col-6 justify-content-between mt-5">
+                        <div>
+                                                    <div class="float-left">
+                                                            <p>
+                                                                <h3><%= posts[i].title%></h3><br>
+                                                            </p>
+                                                                    <a href="/post/<%= posts[i]._id%>">
+                                                                          <img class="img-fluid" src="<%= posts[i].image%>">
+                                                                      </a>
+                                                            <div class="float-left">
+                                                                    <p>
+                                                                          <%= posts[i].caption%><br>
+                                                                      </p>
+                                                              </div>
+                                                    </div>
+                                                    <div class="d-flex flex-row">
+                                                            <p>
+                                                                  <%= posts[i].title%><br>
+                                                                  <%= posts[i]._id%><br>
+
+                                                            </p>
+                                                      </div>
+                                                    <div>
+                                                            <p>
+                                                                  <%= posts[i].caption%><br>
+                                                              </p>
+                                                      </div>
+                                                    <div>
+                                                            <p>
+                                                              </p>
+                                                      </div>
+                          </div>
+                        </li>
+                </div>
+              <div>
+                          <div class="row justify-content-between">
+                                  <form
+                                      class="col-1"
+                                      action="/post/likePost/<%= posts[i]._id %>?_method=PUT"
+                                      method="POST"
+                                  >
+                                        <button class="btn btn-primary fa fa-heart" type="submit"></button>
+                                  </form>
+                                  <div>
+                                        <textarea rows = "5" cols="80"></textarea>
+                                  </div>
+                                  <div class="col-6 mt-5">
+                                        <form action="/post/createComment" enctype="multipart/form-data" method="POST">
+                                                
+                                                <button class="btn btn-primary" type="submit">comment!</button>
+
+                                        </form>
+                                  </div>
+                            </div>
+
+
+
+              </div>
+          <% } %>
+          </ul>
+      </div>
+    </div>  
 <%- include('partials/footer') -%>

@@ -60,6 +60,7 @@ module.exports = {
       await Comment.create({
         postid: req.body.postid,
         comment: req.body.comment,
+        likes: 0,
         user: req.user.id,
       });
       console.log("Comment has been added!");

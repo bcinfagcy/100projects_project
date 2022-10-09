@@ -47,12 +47,16 @@
                                   >
                                         <button class="btn btn-primary fa fa-heart" type="submit"></button>
                                   </form>
-                                  <div>
-                                        <textarea rows = "5" cols="80"></textarea>
-                                  </div>
                                   <div class="col-6 mt-5">
-                                        <form action="/post/createComment" enctype="multipart/form-data" method="POST">
-                                                
+                                          <form action="/post/createComment" enctype="multipart/form-data" method="POST">
+                                                  <div class="mb-3">
+                                                          <!--textarea class="form-control" id="postid" name="postid"><%=posts[i]._id %></textarea-->
+                                                          <div>
+                                                                <textarea class="form-control" id="comment" name="comment" rows = "5" cols="80"></textarea>
+                                                          </div>
+                                                        <p class="form-control" id="postid" name="postid"><%=posts[i]._id%></p>
+                                                </div>             
+
                                                 <button class="btn btn-primary" type="submit">comment!</button>
 
                                         </form>
